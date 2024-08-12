@@ -1,4 +1,10 @@
 <script>
+	/**
+	 * Author : LRoffic
+	 * Author Github Profile : https://github.com/LRoffic
+	 * Repository : https://github.com/LRoffic/SvelteKit-Modal-Component
+	 * Version : 1.0.0
+	*/
 	export let type;
 	export let disabled = false;
 	export let hoverColor, onClick, title, customClass;
