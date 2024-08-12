@@ -3,7 +3,7 @@
 	 * Author : LRoffic
 	 * Author Github Profile : https://github.com/LRoffic
 	 * Repository : https://github.com/LRoffic/SvelteKit-Modal-Component
-	 * Version : 1.0.0
+	 * Version : DEV-1.0.01
 	*/
 	export let color = "fill-green-400";;
 	export let loader = false;
