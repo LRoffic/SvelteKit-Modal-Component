@@ -6,13 +6,13 @@
 	
 	import Modal from "$components/Modal.svelte";
 
+	let exampleModal;
+	
 	let content = "";
 	let showCancel = false;
 	let showCloseButton = false
 	let ModalTitle = "";
 	let ModalSize = "md";
-
-	let exampleModal;
 
 	let options = "";
 
