@@ -73,7 +73,9 @@
 </div>
 <div class="m-4">
 	<input type="checkbox" id="animations" bind:checked={animations}>
-	<label for="animations">Modal animation (with AnimateCSS) : {animations ? "Yes" : "No"}</label>
+	<label for="animations">Modal animation (with 
+		<a href="https://animate.style/" class="font-semibold text-blue-400 hover:underline" target="_blank">AnimateCSS</a>
+	) : {animations ? "Yes" : "No"}</label>
 </div>
 <div class="my-4">
 	<label for="size"></label>
@@ -87,15 +89,17 @@
 
 <hr />
 
-<button on:click={exampleModal.show()} class="p-4 m-4 border-4 border-black rounded-lg hover:bg-black hover:text-white">Show Example Modal</button>
+<button on:click={exampleModal.show()} class="relative px-4 py-2 m-4 overflow-hidden border-4 border-black rounded-lg shadow-2xl before:ease before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:text-white hover:shadow-black hover:before:-rotate-180">
+	<span class="relative z-10">Show Example Modal</span>
+</button>
 <Modal bind:this={exampleModal} {ModalTitle} {showCancel} {showCloseButton} {ModalSize} {animations}>{@html content}</Modal>
 
-<span class="text-blue-500 hover:cursor-pointer hover:underline" on:click={() => showCode = !showCode}>
+<span class="font-semibold text-blue-400 hover:cursor-pointer hover:underline" on:click={() => showCode = !showCode}>
 	Show code 
 	{#if showCode}
 		<i class="bi bi-caret-up-fill"></i>
 	{:else}
-		<i class="text-blue-500 bi bi-caret-down-fill"></i>
+		<i class="bi bi-caret-down-fill"></i>
 	{/if}
 </span>
 {#if showCode}
