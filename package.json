@@ -44,6 +44,7 @@
 	"type": "module",
 	"dependencies": {
 		"animate.css": "^4.1.1",
+		"bootstrap-icons": "^1.11.3",
 		"highlight.js": "^11.10.0"
 	}
 }

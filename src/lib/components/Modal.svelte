@@ -3,11 +3,9 @@
 	 * Author : LRoffic
 	 * Author Github Profile : https://github.com/LRoffic
 	 * Repository : https://github.com/LRoffic/SvelteKit-Modal-Component
-	 * Version : DEV-1.0.01
+	 * Version : DEV-1.0.3
 	*/
 	import {fade} from "svelte/transition"
-	
-	generate: 'ssr'
 	
 	import Spinner from "$components/Spinner.svelte";
 	import Button from "$components/Button.svelte";
@@ -19,6 +17,7 @@
 	export let showCloseButton = true;
 	export let ModalTitle = "";
 	export let ModalSize = "md";
+	export let animations = true;
 
 	let Modal,ModalBackdrop = "";
 
@@ -34,24 +33,31 @@
 		ModalBasis = "basis-10/12";
 
 	export function show() {
-		ModalBackdrop = "animate__animated animate__fadeIn";
+		if(animations){
+			ModalBackdrop = "animate__animated animate__fadeIn";
 
-		Modal = "animate__animated animate__fadeInUp animate__duration-1s";
+			Modal = "animate__animated animate__fadeInUp";
+		}
 
 		visible = "visible";
 	}
 
 	export function hide() {
-		isLoading = true;
+		if(animations){
+            ModalBackdrop = "animate__animated animate__fadeOut";
+			isLoading = true;
 
-		ModalBackdrop = "animate__animated animate__fadeOut animate__duration-1s"; 
+			ModalBackdrop = "animate__animated animate__fadeOut"; 
 
-		Modal = "animate__animated animate__fadeOutDown";
-
-		setTimeout(() => {
+			Modal = "animate__animated animate__fadeOutDown";
+			
+			setTimeout(() => {
+				visible = "hidden";
+				isLoading = false;
+			}, 1200);
+		} else {
 			visible = "hidden";
-			isLoading = false;
-		}, 1200);
+        }
 	}
 </script>
 
@@ -66,8 +72,10 @@
 			</div>
 		{/if}
 		{#if showCloseButton}
-			<button class="absolute top-0 right-0 p-4 mt-0 mr-0 rounded-tr-lg cursor-pointer hover:bg-red-500 mb--5" on:click|self={() => hide()}>
-				<i class="bi bi-x-lg"></i>
+			<button class="absolute top-0 right-0 p-4 mt-0 mr-0 text-white rounded-tr-lg cursor-pointer hover:bg-red-500 mb--5" on:click|self={() => hide()}>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+				</svg>
 			</button>
 		{/if}
 		<div class="flex flex-col p-4 pt-0">
