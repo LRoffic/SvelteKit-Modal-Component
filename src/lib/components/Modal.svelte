@@ -72,7 +72,7 @@
 		{/if}
 		<div class="flex flex-col p-4 pt-0">
 			<div class="justify-center flex-auto p-3">
-				{#if !ModalTitle}
+				{#if ModalTitle}
 					<h2 class="py-4 mb-4 text-xl font-bold text-center text-gray-200">{ModalTitle}</h2>
 				{:else}
 					<div class="py-4 mb-4"></div>
@@ -94,7 +94,7 @@
 						{/each}
 					{/if}
 					{#if showCancel}
-						<button class="p-4 rounded-lg bg-slate-900 hover:bg-red-500" on:click={() => hide()}>
+						<button class="p-4 text-white rounded-lg bg-slate-900 hover:bg-red-500" on:click={() => hide()}>
 							Cancel
 						</button>
 					{/if}
