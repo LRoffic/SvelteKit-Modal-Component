@@ -25,3 +25,4 @@ ___
 
 ## How to use ?
 Coming Soon.. Documentation is currently WIP...
+You can generate your Modal code <a href="https://lroffic.github.io/SvelteKit-Modal-Component/" target="_blank">here</a>
